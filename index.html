@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Inline CSS Example</title>
+
+  <!-- Minimal internal CSS only for :hover (pseudo-classes require a style block) -->
+  <style>
+    /* Inline style attributes cannot handle pseudo-classes like :hover,
+       so we use a small style block for the button hover and a simple responsive tweak. */
+    .btn:hover { transform: translateY(-2px); cursor: pointer; }
+    @media (max-width:600px) {
+      .card { width: 90% !important; }
+      nav { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:#f4f6f8; color:#1f2937;">
+
+  <!-- Header -->
+  <header style="background: linear-gradient(90deg,#4f46e5,#06b6d4); color:white; padding:20px 24px;">
+    <h1 style="margin:0; font-size:1.4rem;">My Inline-CSS Page</h1>
+    <p style="margin:6px 0 0; opacity:0.92; font-size:0.95rem;">Small page demonstrating inline styles</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav style="display:flex; gap:12px; padding:12px 24px; align-items:center; background: #ffffff; box-shadow: 0 1px 0 rgba(0,0,0,0.04);">
+    <a href="#" style="text-decoration:none; color:#374151; padding:8px 12px; border-radius:6px; background:transparent;">Home</a>
+    <a href="#" style="text-decoration:none; color:#374151; padding:8px 12px; border-radius:6px; background:transparent;">About</a>
+    <a href="#" style="text-decoration:none; color:#374151; padding:8px 12px; border-radius:6px; background:transparent;">Contact</a>
+    <div style="margin-left:auto; font-size:0.9rem; color:#6b7280;">Logged in as <strong>you</strong></div>
+  </nav>
+
+  <!-- Main content -->
+  <main style="display:flex; gap:24px; padding:28px; justify-content:center;">
+    <!-- Card -->
+    <section class="card" style="background:white; width:680px; max-width:100%; border-radius:12px; padding:20px; box-shadow: 0 6px 18px rgba(15,23,42,0.06);">
+      <h2 style="margin:0 0 8px 0; font-size:1.15rem; color:#111827;">Welcome</h2>
+      <p style="margin:0 0 16px 0; line-height:1.5; color:#4b5563;">
+        This example demonstrates inline styling using the <code>style</code> attribute on HTML elements.
+        Inline styles are useful for quick tweaks or generated HTML, but for larger projects prefer internal or external stylesheets.
+      </p>
+
+      <!-- Example list styled inline -->
+      <ul style="margin:0 0 18px 18px; color:#374151;">
+        <li style="margin-bottom:8px;">Responsive layout with a tiny media query (in &lt;style&gt; block).</li>
+        <li style="margin-bottom:8px;">Cards, buttons, and nav links all styled inline.</li>
+        <li style="margin-bottom:8px;">Hover uses a CSS class because inline styles cannot express :hover.</li>
+      </ul>
+
+      <!-- Button group -->
+      <div style="display:flex; gap:10px; align-items:center;">
+        <button class="btn" style="padding:10px 14px; border-radius:8px; border:0; background:#4f46e5; color:white; font-weight:600; box-shadow: 0 6px 12px rgba(79,70,229,0.18);">
+          Primary Action
+        </button>
+
+        <button style="padding:10px 14px; border-radius:8px; border:1px solid #d1d5db; background:transparent; color:#374151;">
+          Secondary
+        </button>
+      </div>
+    </section>
+
+    <!-- Small info box -->
+    <aside style="width:260px; max-width:100%; display:flex; align-items:flex-start;">
+      <div style="background:linear-gradient(180deg,#fff 0%,#fbfdff 100%); padding:14px; border-radius:10px; box-shadow:0 6px 14px rgba(16,24,40,0.04); width:100%;">
+        <h3 style="margin:0 0 6px 0; font-size:1rem;">Quick tips</h3>
+        <ol style="margin:0 0 0 18px; color:#475569;">
+          <li style="margin-bottom:6px;">Use inline styles for generated HTML or emails.</li>
+          <li style="margin-bottom:6px;">Move repeated styles to a stylesheet to avoid duplication.</li>
+          <li>Remember: pseudo-classes require CSS rules, not inline style attributes.</li>
+        </ol>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Footer -->
+  <footer style="text-align:center; padding:18px 8px; color:#6b7280; font-size:0.9rem;">
+    © <span id="year" style="font-weight:600;"></span> Inline CSS Demo
+  </footer>
+
+  <!-- Small script to set year -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
